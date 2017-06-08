@@ -186,10 +186,8 @@ int Node<T>::height() {
 template<typename T>
 void Node<T>::heightHelper(Node *node, int n, int &m) {
     if (node != nullptr) {
-        node->heightHelper(node->leftNode, ++n, m);
-        n--;
-        node->heightHelper(node->rightNode, ++n, m);
-        n--;
+        node->heightHelper(node->leftNode, n + 1, m);
+        node->heightHelper(node->rightNode, n + 1, m);
     } else {
         if (n > m)m = n;
     }
